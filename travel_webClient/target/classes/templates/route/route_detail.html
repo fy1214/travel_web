@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>冯家旅游网</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/route/route_detail.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/getParameter.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/wait.js}"></script>
+<!--    <script th:src="@{/js/head.js}"></script>-->
+    <script th:src="@{/js/route/route_detail.js}"></script>
+</head>
+
+<body>
+    <header class="container">
+        <div class="row paddtop">
+            <img th:src="@{/img/top.png}" class="img-responsive">
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="#" class="img-responsive">
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <input class="search-input" type="text" placeholder="请输入名称">
+                    </div>
+                    <div class="col-md-3">
+                        <a class="search-btn" href="#">搜索</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <span id="span_header"></span>
+                <a id="a_header" href="javascript:void(0);"></a>
+                <img style="margin: 5px" th:src="@{/img/tel.png}" class="img-responsive">
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav" id="category">
+                            <li class="active"><a class="navbar-brand" th:href="@{/dashboard}">首页</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=1}">门票</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=2}">酒店</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=3}">香港车票</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=4}">出境游</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=5}">国内游</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=6}">港澳游</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=7}">抱团定制</a></li>
+                            <li style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=8}">全球自由行</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <div>
+            <span>首页 > 国内游 >【减100元 含除夕/春节出发】广西增城三英温泉度假酒店/自由行套票</span>
+        </div>
+
+        <div class="row" style="border: 2px solid #FFF5EE;margin-top: 8px">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-9" id="addDiv">
+
+                    </div>
+                        <ul style="list-style-type:none;margin-top: 20px;" id="addUl"></ul>
+                    </div>
+                </div>
+            <div class="col-md-5">
+                <div id="rname" style="margin-top: 10px;font-weight: bolder;font-size: 18px;margin-top: 20px"></div>
+                <div id="routeIntroduce" style="margin-top: 10px;color: red;font-size: 13px;margin-top: 10px"></div>
+                <div style="background-color: #F8F8FF;margin-top: 10px;padding-top:9px;padding-left: 10px;padding-bottom: 9px">
+                        <div class="seller-info">经营商家：<span id="sname"></span></div>
+                        <div class="seller-info">咨询电话：<span id="consphone"></span></div>
+                        <div class="seller-info">地址：<span id="address"></span></div>
+                </div>
+                <div style="background-color: #F8F8FF;margin-top: 25px;padding-top: 10px">
+                    <span><span id="price" style="color: red;font-size: 25px"></span>起</span><br/>
+                    <button class="btn" id="favorite" onclick="addFavorite();"><span class="glyphicon glyphicon-heart" aria-hidden="true" id="favoriteSpan">点击收藏</span></button>
+                    <button class="btn btn-default" id="btn_2" onclick="removeFavorite();" disabled="disabled"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true">取消收藏</span></button>
+                    <span>已收藏<span id="favoriteCount"></span>次</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer class="container">
+            <div class="row">
+                <img src="img/底部logo.png" class="img-responsive">
+            </div>
+
+            <div class="row company">
+                <span>
+                    亮亮股份有限公司 版权所有Copyright 2006-2021，All Rights Reserved 苏ICP备16007882
+                </span>
+            </div>
+        </footer>
+    </header>
+</body>
+</html>

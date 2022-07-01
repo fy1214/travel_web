@@ -1,0 +1,68 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: travel-server-client-route
+  datasource:
+    hikari:
+      # 连接池名
+      pool-name: DataHikariCP
+      # 最小空闲连接数
+      minimum-idle: 5
+      # 空闲连接最大存活时间，默认十分钟
+      idle-timeout: 1800000
+      # 最大连接数
+      maximum-pool-size: 10
+      # 从连接池返回的连接自动提交
+      auto-commit: true
+      # 连接最大存活时间，默认30分钟
+      max-lifetime: 1800000
+      # 连接超时时间，默认30s
+      connection-timeout: 30000
+
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://1.14.109.248:3306/travel?userUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 1234
+
+
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 200
+        min-idle: 5
+        max-wait: 10000ms
+    #     服务器地址
+    host: 1.14.109.248
+    port: 6379
+#    cluster:
+#      nodes: [ '192.168.10.129:6379','192.168.10.129:6380','192.168.10.129:6381' ]
+#      max-redirects: 5
+  cloud:
+    nacos:
+      discovery:
+        #Nacos服务注册中心地址
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        #配置Sentinel dashboard地址
+        dashboard: localhost:8080
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
+
+#mybatis:
+#  mapperLocations: classpath:mapper/*.xml
+#  type-aliases-package: com.MFtravel.pojo       # 所有Entity别名类所在包
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.MFtravel.pojo       # 所有Entity别名类所在包
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.MFtravel.mapper.RouteMapper">
+
+    <!--自定义某个javaBean的封装规则：
+    type：自定义规则的javaBean类型
+    id：唯一ID方便引用
+        -->
+    <resultMap id="RouteDetail" type="com.MFtravel.pojo.RouteDetail">
+        <!--指定主键列的封装规则
+        主键用id定义会有优化
+        column：指定哪一列
+        property：指定对应的javaBean属性
+        -->
+        <id column="rid" property="route.rid"/>
+        <!--定义普通列封装规则-->
+        <result column="rname" property="route.rname"/>
+        <result column="rprice" property="route.rprice"/>
+        <result column="route_introduce" property="route.routeIntroduce"/>
+        <result column="rflag" property="route.rflag"/>
+        <result column="rdate" property="route.rdate"/>
+        <result column="is_theme_tour" property="route.isThemeTour"/>
+        <result column="count" property="route.count"/>
+        <result column="belong" property="route.belong"/>
+        <result column="rimage" property="route.rimage"/>
+        <result column="sid" property="seller.sid"/>
+        <result column="sname" property="seller.sname"/>
+        <result column="phone" property="seller.phone"/>
+        <result column="address" property="seller.address"/>
+    </resultMap>
+    <select id="getRouteDetailById" parameterType="Long" resultMap="RouteDetail">
+        SELECT r.rid rid, r.rname rname, r.rprice rprice, r.route_introduce route_introduce, r.rflag rflag, r.rdate rdate,
+        r.is_theme_tour is_theme_tour, r.count count, r.belong belong, r.rimage rimage, r.sid sid, s.sname sname, s.phone phone, s.address address
+        FROM t_route r, t_seller s WHERE r.sid=s.sid AND r.rid = #{id};
+    </select>
+</mapper>

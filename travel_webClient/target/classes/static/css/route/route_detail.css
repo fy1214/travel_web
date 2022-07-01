@@ -1,0 +1,41 @@
+.paddtop{
+    padding-top: 5px;
+}
+.search-btn{
+    float: left;
+    border: 1px solid #ffc900;
+    width: 90px;
+    height: 40px;
+    background-color: #ffc900;
+    text-align: center;
+    line-height: 40px;
+    margin: 40px;
+}
+.search-input{
+    border: 2px solid #ffc900;
+    width: 325px;
+    height: 40px;
+    margin: 40px;
+}
+
+.company{
+    height: 40px;
+    background-color:#ffc900;
+    text-align: center;
+    line-height: 40px;
+}
+
+.seller-info{
+    margin-top: 5px;
+}
+
+#favorite{
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#btn_2{
+    margin-top: 12px;
+    margin-bottom: 10px;
+}

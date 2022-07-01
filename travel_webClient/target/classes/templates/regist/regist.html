@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/regist/regist.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/md5.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/regist/regist.js}" type="text/javascript"></script>
+    <script th:src="@{/js/layer/layer.js}" type="text/javascript"></script>
+</head>
+
+<body>
+    <header class="container">
+        <div class="row paddtop">
+            <img th:src="@{/img/top.png}" class="img-responsive">
+        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="#" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="col-md-7">
+                    <input class="search-input" type="text" placeholder="请输入名称">
+                </div>
+                <div class="col-md-3">
+                    <a class="search-btn" href="#">搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img style="margin: 5px" th:src="@{/img/tel.png}" class="img-responsive">
+        </div>
+    </div>
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="border: solid 10px grey">
+                <div id="errorMsg" style="color:#ff0000 ;text-align: center"></div>
+            <form class="form-horizontal" style="margin: 20px" id="registerForm" method="post">
+                <div class="form-group" id="lll">
+                    <label for="username" class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="username" type="text" class="form-control" id="username" placeholder="请输入用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="password" type="password" class="form-control" id="password" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="name" type="text" class="form-control" id="name" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthday" class="col-sm-2 control-label">生日</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="birthday" type="date" class="form-control" id="birthday" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
+                    <div class="col-md-4">
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="男"> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="女"> 女
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telephone" class="col-sm-2 control-label">手机</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="telephone" type="text" class="form-control" id="telephone" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-10">
+                        <input style="width: 500px;" name="email" type="email" class="form-control" id="email" placeholder="请输入邮箱">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="checkcode" class="col-sm-2 control-label">验证码</label>
+                    <div class="col-sm-8 form-inline">
+                        <input style="width: 100px;" name="checkcode" type="text" class="form-control" id="checkcode">
+                        <a style="margin-left: 5px;" href=""><img title="看不清楚请点击" id="vcode"></a>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3"></div>
+                    <div class="col-sm-5">
+                        <a type="submit" class="btn btn-primary btn-lg" id="regist"> 注    册 </a>
+                        已有账号？<a id="login" href="...">登录</a>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+    <footer class="container">
+        <div class="row">
+            <img th:src="@{/img/底部logo.png}" class="img-responsive">
+        </div>
+        <div class="row company">
+            <span>
+                亮亮股份有限公司 版权所有Copyright 2006-2021，All Rights Reserved 苏ICP备16007882
+            </span>
+        </div>
+    </footer>
+    </header>
+</body>
+</html>

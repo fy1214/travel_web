@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>冯家旅游网</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/route/route_list.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/getParameter.js}"></script>
+    <script th:src="@{/js/head.js}"></script>
+    <script th:src="@{/js/route/route_list.js}"></script>
+</head>
+<body>
+    <header class="container">
+        <div class="row paddtop">
+            <img th:src="@{/img/top.png}" class="img-responsive">
+        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="#" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="col-md-7">
+                    <input class="search-input" id="search-input" type="text" placeholder="请输入名称">
+                </div>
+                <div class="col-md-3">
+                    <button class="search-btn" id="search-btn">搜索</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <span id="span_header"></span>
+            <a id="a_header" href="javascript:void(0);"></a>
+            <img style="margin: 5px" th:src="@{/img/tel.png}" class="img-responsive">
+        </div>
+    </div>
+
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul id="category" class="nav navbar-nav">
+                            <li ><a class="navbar-brand" th:href="@{/dashboard}">首页</a></li>
+                            <li id="topbar1" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=1}">门票</a></li>
+                            <li id="topbar2" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=2}">酒店</a></li>
+                            <li id="topbar3" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=3}">香港车票</a></li>
+                            <li id="topbar4" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=4}">出境游</a></li>
+                            <li id="topbar5" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=5}">国内游</a></li>
+                            <li id="topbar6" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=6}">港澳游</a></li>
+                            <li id="topbar7" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=7}">抱团定制</a></li>
+                            <li id="topbar8" style="padding-left: 20px"><a class="navbar-brand" th:href="@{/route_list?cid=8}">全球自由行</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <div>
+            <span class="glyphicon glyphicon-star" aria-hidden="true" style="margin:5px; font-weight: bold;font-size: 18px">冯家旅游><span style="color:red">搜索结果</span></span><br/><br/>
+            <div class="table-responsive col-md-9">
+                <table class="table" id="route">
+
+                    <tr>
+                        <td style="width: 600px;text-align: center;height:40px;background-color: gainsboro;font-weight: bolder">商品信息</td>
+                        <td style="text-align: center;height:40px;background-color: gainsboro;font-weight: bolder">价格</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 600px;">
+                            <div class="row">
+                                <div class="col-md-5"><img th:src="@{/img/route/旅游图1.jpg}" class="img-responsive"></div>
+                                <div class="col-md-7">
+                                    <div class="div_style1">【减100元 含除夕/春节出发】广州增城三英温泉度假酒店/自由行套票</div>
+                                    <div class="div_style2">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td style="text-align: center;border-left-style: solid;border-left-color: #F8F8FF;">
+                            <p>
+                                <br/>
+                                <span class="span_style1">￥</span>
+                                <span class="span_style1">999</span>
+                                <span style="color: red;">起</span>
+                            </p>
+                            <p><a href="...">查看详情</a></p>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table>
+                <tr>
+                    <td style="width:400px;height:40px;background-color: gainsboro"><span style="font-size:20px;font-weight: bolder;color: red">&nbspHOT</span> 热门分类</td>
+                </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <i></i>共
+                    <span id="totalPage"></span>页<span id="totalCount"></span>条
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+            <nav aria-label="Page navigation" style="float: left">
+                <ul class="pagination" id="pageNum">
+
+                </ul>
+            </nav>
+                </div>
+           </div>
+        </div>
+
+
+    <footer class="container">
+        <div class="row">
+            <img src="img/底部logo.png" class="img-responsive">
+        </div>
+        <div class="row company">
+            <span>
+                亮亮股份有限公司 版权所有Copyright 2006-2021，All Rights Reserved 苏ICP备16007882
+            </span>
+        </div>
+    </footer>
+    </header>
+</body>
+</html>

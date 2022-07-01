@@ -1,0 +1,37 @@
+.paddtop{
+    padding-top: 5px;
+}
+.search-btn{
+    float: left;
+    border: 1px solid #ffc900;
+    width: 90px;
+    height: 40px;
+    background-color: #ffc900;
+    text-align: center;
+    line-height: 40px;
+    margin: 40px;
+}
+.search-input{
+    border: 2px solid #ffc900;
+    width: 325px;
+    height: 40px;
+    margin: 40px;
+}
+
+.company{
+    height: 40px;
+    background-color:#ffc900;
+    text-align: center;
+    line-height: 40px;
+}
+
+#main{
+    background-image: url("../../img/背景.png");
+    height: 500px;
+    width: 1170px;
+}
+
+#login{
+    border: grey solid 10px;
+    background-color: #2aabd2;
+}

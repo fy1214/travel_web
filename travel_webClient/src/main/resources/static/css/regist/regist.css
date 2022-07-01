@@ -1,0 +1,26 @@
+.paddtop{
+    padding-top: 5px;
+}
+.search-btn{
+    float: left;
+    border: 1px solid #ffc900;
+    width: 90px;
+    height: 40px;
+    background-color: #ffc900;
+    text-align: center;
+    line-height: 40px;
+    margin: 40px;
+}
+.search-input{
+    border: 2px solid #ffc900;
+    width: 325px;
+    height: 40px;
+    margin: 40px;
+}
+
+.company{
+    height: 40px;
+    background-color:#ffc900;
+    text-align: center;
+    line-height: 40px;
+}
